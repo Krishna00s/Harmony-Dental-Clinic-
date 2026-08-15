@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Local databases
+server/prisma/dev.db
+server/prisma/dev.db-journal
