@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { PageWrapper } from './components/layout/PageWrapper';
-import { ReviewMarquee } from './components/ui/ReviewMarquee';
 
 // Page Views
 import { HomePage } from './pages/Home/HomePage';
@@ -12,6 +11,7 @@ import { ServicesPage } from './pages/Services/ServicesPage';
 import { ServiceDetailPage } from './pages/ServiceDetail/ServiceDetailPage';
 import { DoctorPage } from './pages/Doctor/DoctorPage';
 import { PatientInfoPage } from './pages/PatientInfo/PatientInfoPage';
+import { AboutPage } from './pages/About/AboutPage';
 import { ReviewsPage } from './pages/Reviews/ReviewsPage';
 import { ContactPage } from './pages/Contact/ContactPage';
 import { BookAppointmentPage } from './pages/BookAppointment/BookAppointmentPage';
@@ -30,6 +30,7 @@ export const App: React.FC = () => {
               <Route path="/services/:slug" element={<ServiceDetailPage />} />
               <Route path="/doctor" element={<DoctorPage />} />
               <Route path="/patient-info" element={<PatientInfoPage />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route path="/reviews" element={<ReviewsPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/book-appointment" element={<BookAppointmentPage />} />
@@ -38,7 +39,6 @@ export const App: React.FC = () => {
             </Routes>
           </PageWrapper>
         </main>
-        <ReviewMarquee />
         <Footer />
       </div>
     </BrowserRouter>

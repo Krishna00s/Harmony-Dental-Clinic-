@@ -10,9 +10,9 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   { label: 'Our Practice', path: '/practice' },
   { label: 'Services', path: '/services' },
-  { label: 'Our Doctor', path: '/doctor' },
+  { label: 'Our Doctors', path: '/doctor' },
   { label: 'Patient Info', path: '/patient-info' },
-  { label: 'Contact', path: '/contact' },
+  { label: 'About Us', path: '/about' },
 ];
 
 export const Navbar: React.FC = () => {

@@ -5,19 +5,18 @@ import { Button } from '../../components/ui/Button';
 import { Badge } from '../../components/ui/Badge';
 import { Card } from '../../components/ui/Card';
 import { BeforeAfterSlider } from '../../components/ui/BeforeAfterSlider';
+import { ReviewMarquee } from '../../components/ui/ReviewMarquee';
 import { getServices } from '../../services/servicesService';
 import { getDoctors } from '../../services/doctorsService';
 import { getBeforeAfterCases } from '../../services/beforeAfterService';
-import { getTestimonials } from '../../services/testimonialsService';
 import { getGallery } from '../../services/galleryService';
-import type { Service, Doctor, BeforeAfterCase, Testimonial, GalleryItem } from '../../types';
+import type { Service, Doctor, BeforeAfterCase, GalleryItem } from '../../types';
 import { ArrowRight, Star, ShieldCheck, Award, Users, HeartHandshake, CheckCircle2, Mail } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   const [services, setServices] = useState<Service[]>([]);
   const [doctor, setDoctor] = useState<Doctor | null>(null);
   const [beforeAfterCase, setBeforeAfterCase] = useState<BeforeAfterCase | null>(null);
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [gallery, setGallery] = useState<GalleryItem[]>([]);
 
   useEffect(() => {
@@ -25,18 +24,16 @@ export const HomePage: React.FC = () => {
 
     async function loadHomeData() {
       try {
-        const [sData, dData, baData, tData, gData] = await Promise.allSettled([
+        const [sData, dData, baData, gData] = await Promise.allSettled([
           getServices(),
           getDoctors(),
           getBeforeAfterCases(),
-          getTestimonials(),
           getGallery(),
         ]);
 
         if (sData.status === 'fulfilled') setServices(sData.value.slice(0, 3));
         if (dData.status === 'fulfilled' && dData.value.length > 0) setDoctor(dData.value[0]);
         if (baData.status === 'fulfilled' && baData.value.length > 0) setBeforeAfterCase(baData.value[0]);
-        if (tData.status === 'fulfilled') setTestimonials(tData.value.slice(0, 3));
         if (gData.status === 'fulfilled') setGallery(gData.value.slice(0, 4));
       } catch (err) {
         console.error('Error loading homepage data:', err);
@@ -339,41 +336,8 @@ export const HomePage: React.FC = () => {
         </Container>
       </section>
 
-      {/* 7. Patient Experience / Testimonials Highlights */}
-      <section>
-        <Container size="lg">
-          <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-            <Badge variant="teal">Patient Experience</Badge>
-            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#17221F]">
-              What Our Patients Say
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t) => (
-              <Card key={t.id} className="flex flex-col justify-between space-y-4">
-                <div className="space-y-3">
-                  <div className="flex text-amber-500">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
-                    ))}
-                  </div>
-                  <p className="font-serif text-lg text-[#17221F] italic leading-relaxed">
-                    "{t.quote}"
-                  </p>
-                </div>
-                <div className="pt-3 border-t border-[#E8E7E1] flex justify-between items-center text-xs">
-                  <span className="font-semibold text-[#17221F]">{t.displayName}</span>
-                  <span className="text-[#526E68]">{t.context}</span>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 8. Asymmetric Editorial Clinic Gallery Preview */}
-      <section className="bg-white py-20 border-y border-[#E8E7E1]">
+      {/* 7. Asymmetric Editorial Clinic Gallery Preview */}
+      <section className="py-12">
         <Container size="lg">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
@@ -409,7 +373,7 @@ export const HomePage: React.FC = () => {
         </Container>
       </section>
 
-      {/* 9. Contact Us Conversion CTA Banner */}
+      {/* 8. Contact Us Conversion CTA Banner */}
       <section>
         <Container size="lg">
           <div className="bg-[#17221F] text-white rounded-3xl p-10 md:p-16 text-center space-y-6 shadow-xl">
@@ -429,6 +393,9 @@ export const HomePage: React.FC = () => {
           </div>
         </Container>
       </section>
+
+      {/* 9. Compact Review Marquee (Exclusive Social Proof Moment right above Footer) */}
+      <ReviewMarquee />
     </div>
   );
 };
