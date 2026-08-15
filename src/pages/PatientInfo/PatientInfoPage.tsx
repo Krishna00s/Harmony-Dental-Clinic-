@@ -1,28 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Container } from '../../components/layout/Container';
 import { SectionHeader } from '../../components/layout/SectionHeader';
 import { Card } from '../../components/ui/Card';
 import { AccordionItem } from '../../components/ui/Accordion';
 import { Button } from '../../components/ui/Button';
 import { Link } from 'react-router-dom';
-import { getFaqs } from '../../services/faqsService';
-import type { FAQ } from '../../types';
+import { faqsData } from '../../data/faqsData';
 import { Shield, CreditCard, Mail } from 'lucide-react';
 
 export const PatientInfoPage: React.FC = () => {
-  const [faqs, setFaqs] = useState<FAQ[]>([]);
-
   useEffect(() => {
     document.title = 'Patient Information & FAQ — Harmony Dental Care';
-    async function loadFaqs() {
-      try {
-        const data = await getFaqs();
-        setFaqs(data);
-      } catch (err) {
-        console.error('Error loading FAQs:', err);
-      }
-    }
-    loadFaqs();
   }, []);
 
   return (
@@ -112,7 +100,7 @@ export const PatientInfoPage: React.FC = () => {
           />
 
           <div className="divide-y divide-[#E8E7E1]">
-            {faqs.map((faq, idx) => (
+            {faqsData.map((faq, idx) => (
               <AccordionItem
                 key={faq.id}
                 question={faq.question}

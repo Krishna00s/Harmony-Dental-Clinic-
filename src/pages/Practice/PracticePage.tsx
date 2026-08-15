@@ -6,25 +6,15 @@ import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Modal } from '../../components/ui/Modal';
 import { Link } from 'react-router-dom';
-import { getGallery } from '../../services/galleryService';
+import { galleryData } from '../../data/galleryData';
 import type { GalleryItem } from '../../types';
 import { Maximize2, Mail } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
-  const [gallery, setGallery] = useState<GalleryItem[]>([]);
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
   useEffect(() => {
     document.title = 'Our Practice — Harmony Dental Care';
-    async function loadGallery() {
-      try {
-        const items = await getGallery();
-        setGallery(items);
-      } catch (err) {
-        console.error('Error loading gallery:', err);
-      }
-    }
-    loadGallery();
   }, []);
 
   return (
@@ -109,7 +99,7 @@ export const PracticePage: React.FC = () => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {gallery.map((item) => (
+            {galleryData.map((item) => (
               <div
                 key={item.id}
                 onClick={() => setSelectedImage(item)}

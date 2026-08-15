@@ -1,27 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { getTestimonials } from '../../services/testimonialsService';
-import type { Testimonial } from '../../types';
+import React from 'react';
+import { testimonialsData } from '../../data/testimonialsData';
 import { Star } from 'lucide-react';
 
 export const ReviewMarquee: React.FC = () => {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-
-  useEffect(() => {
-    async function loadTestimonials() {
-      try {
-        const data = await getTestimonials();
-        setTestimonials(data);
-      } catch (err) {
-        console.error('Error loading marquee testimonials:', err);
-      }
-    }
-    loadTestimonials();
-  }, []);
-
-  if (testimonials.length === 0) return null;
-
   // Duplicate items array twice to create a seamless infinite loop
-  const marqueeItems = [...testimonials, ...testimonials, ...testimonials];
+  const marqueeItems = [...testimonialsData, ...testimonialsData, ...testimonialsData];
 
   return (
     <section className="bg-[#E8E7E1]/50 border-t border-[#E8E7E1] py-8 overflow-hidden select-none">

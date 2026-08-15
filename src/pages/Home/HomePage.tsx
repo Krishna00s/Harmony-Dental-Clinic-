@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from '../../components/layout/Container';
 import { Button } from '../../components/ui/Button';
@@ -6,50 +6,31 @@ import { Badge } from '../../components/ui/Badge';
 import { Card } from '../../components/ui/Card';
 import { BeforeAfterSlider } from '../../components/ui/BeforeAfterSlider';
 import { ReviewMarquee } from '../../components/ui/ReviewMarquee';
-import { getServices } from '../../services/servicesService';
-import { getDoctors } from '../../services/doctorsService';
-import { getBeforeAfterCases } from '../../services/beforeAfterService';
-import { getGallery } from '../../services/galleryService';
-import type { Service, Doctor, BeforeAfterCase, GalleryItem } from '../../types';
+import { servicesData } from '../../data/servicesData';
+import { doctorsData } from '../../data/doctorsData';
+import { beforeAfterData } from '../../data/beforeAfterData';
+import { galleryData } from '../../data/galleryData';
 import { ArrowRight, Star, ShieldCheck, Award, Users, HeartHandshake, CheckCircle2, Mail } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
-  const [services, setServices] = useState<Service[]>([]);
-  const [doctor, setDoctor] = useState<Doctor | null>(null);
-  const [beforeAfterCase, setBeforeAfterCase] = useState<BeforeAfterCase | null>(null);
-  const [gallery, setGallery] = useState<GalleryItem[]>([]);
-
   useEffect(() => {
     document.title = 'Harmony Dental Care — Thoughtful Care, Without the Noise';
-
-    async function loadHomeData() {
-      try {
-        const [sData, dData, baData, gData] = await Promise.allSettled([
-          getServices(),
-          getDoctors(),
-          getBeforeAfterCases(),
-          getGallery(),
-        ]);
-
-        if (sData.status === 'fulfilled') setServices(sData.value.slice(0, 3));
-        if (dData.status === 'fulfilled' && dData.value.length > 0) setDoctor(dData.value[0]);
-        if (baData.status === 'fulfilled' && baData.value.length > 0) setBeforeAfterCase(baData.value[0]);
-        if (gData.status === 'fulfilled') setGallery(gData.value.slice(0, 4));
-      } catch (err) {
-        console.error('Error loading homepage data:', err);
-      }
-    }
-    loadHomeData();
   }, []);
+
+  const featuredServices = servicesData.slice(0, 3);
+  const doctor = doctorsData[0];
+  const beforeAfterCase = beforeAfterData[0];
+  const featuredGallery = galleryData.slice(0, 4);
 
   return (
     <div className="space-y-24 md:space-y-36 pb-12">
       {/* 1. Hero Section */}
       <section className="pt-6 md:pt-12">
         <Container size="lg">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Narrative */}
-            <div className="lg:col-span-7 space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+            
+            {/* Header Narrative (Badge, Heading, Paragraph) */}
+            <div className="order-1 lg:col-span-7 space-y-6">
               <Badge variant="teal">Compassionate Care. Beautiful Smiles.</Badge>
 
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium text-[#17221F] tracking-tight leading-[1.1]">
@@ -60,41 +41,10 @@ export const HomePage: React.FC = () => {
               <p className="text-base sm:text-lg text-[#17221F]/70 font-sans max-w-xl leading-relaxed">
                 Personalized dental care built around listening, clear guidance, and a treatment plan that makes sense for you in a comfortable environment.
               </p>
-
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Link to="/contact">
-                  <Button variant="primary" size="lg" className="w-full sm:w-auto">
-                    <Mail className="w-4 h-4 mr-2" /> Contact Us
-                  </Button>
-                </Link>
-                <Link to="/doctor">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                    Meet Our Doctor
-                  </Button>
-                </Link>
-              </div>
-
-              {/* Patient Proof Thumbnail */}
-              <div className="pt-4 flex items-center space-x-4 text-xs text-[#17221F]/70">
-                <div className="flex -space-x-2 overflow-hidden">
-                  <img className="inline-block h-8 w-8 rounded-full ring-2 ring-[#F7F7F4] object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Patient avatar" />
-                  <img className="inline-block h-8 w-8 rounded-full ring-2 ring-[#F7F7F4] object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" alt="Patient avatar" />
-                  <img className="inline-block h-8 w-8 rounded-full ring-2 ring-[#F7F7F4] object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200" alt="Patient avatar" />
-                </div>
-                <div className="flex items-center space-x-1">
-                  <div className="flex text-amber-500">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <span className="font-semibold text-[#17221F]">4.9/5</span>
-                  <span>from 250+ happy patients</span>
-                </div>
-              </div>
             </div>
 
-            {/* Right Hero Image */}
-            <div className="lg:col-span-5">
+            {/* Hero Image (After Paragraph on Mobile, Right Column on Desktop) */}
+            <div className="order-2 lg:order-2 lg:col-span-5 lg:row-span-3">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#E8E7E1] aspect-[4/3] sm:aspect-[4/3] lg:aspect-[4/5]">
                 <img
                   src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200"
@@ -108,6 +58,41 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* CTA Buttons (After Image on Mobile, Left Column on Desktop) */}
+            <div className="order-3 lg:order-3 lg:col-span-7 pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                  <Mail className="w-4 h-4 mr-2" /> Contact Us
+                </Button>
+              </Link>
+              <Link to="/doctor" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  Meet Our Doctor
+                </Button>
+              </Link>
+            </div>
+
+            {/* Patient Proof / Rating Block (After CTAs on Mobile, Left Column on Desktop) */}
+            <div className="order-4 lg:order-4 lg:col-span-7 pt-2 flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-4 text-xs text-[#17221F]/70 text-center sm:text-left">
+              <div className="flex -space-x-2 overflow-hidden justify-center sm:justify-start">
+                <img className="inline-block h-8 w-8 rounded-full ring-2 ring-[#F7F7F4] object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Patient avatar" />
+                <img className="inline-block h-8 w-8 rounded-full ring-2 ring-[#F7F7F4] object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" alt="Patient avatar" />
+                <img className="inline-block h-8 w-8 rounded-full ring-2 ring-[#F7F7F4] object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200" alt="Patient avatar" />
+              </div>
+              <div className="flex flex-col items-center sm:items-start space-y-1">
+                <div className="flex items-center space-x-1.5 justify-center sm:justify-start">
+                  <div className="flex text-amber-500">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                  <span className="font-semibold text-[#17221F] text-xs">4.9/5</span>
+                </div>
+                <span className="text-xs text-[#17221F]/70 block">from 250+ happy patients</span>
+              </div>
+            </div>
+
           </div>
         </Container>
       </section>
@@ -230,7 +215,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service) => (
+            {featuredServices.map((service) => (
               <Card key={service.id} className="flex flex-col justify-between group">
                 <div>
                   <div className="aspect-[16/10] rounded-lg overflow-hidden mb-6 bg-[#E8E7E1]">
@@ -279,20 +264,14 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="lg:col-span-7">
-              {beforeAfterCase ? (
-                <BeforeAfterSlider
-                  beforeImage={beforeAfterCase.beforeImage}
-                  afterImage={beforeAfterCase.afterImage}
-                  beforeAlt={beforeAfterCase.beforeAlt}
-                  afterAlt={beforeAfterCase.afterAlt}
-                  treatment={beforeAfterCase.treatment}
-                  description={beforeAfterCase.description}
-                />
-              ) : (
-                <div className="aspect-[16/9] bg-[#E8E7E1] rounded-xl flex items-center justify-center text-xs text-[#17221F]/50">
-                  Loading transformation preview...
-                </div>
-              )}
+              <BeforeAfterSlider
+                beforeImage={beforeAfterCase.beforeImage}
+                afterImage={beforeAfterCase.afterImage}
+                beforeAlt={beforeAfterCase.beforeAlt}
+                afterAlt={beforeAfterCase.afterAlt}
+                treatment={beforeAfterCase.treatment}
+                description={beforeAfterCase.description}
+              />
             </div>
           </div>
         </Container>
@@ -301,38 +280,36 @@ export const HomePage: React.FC = () => {
       {/* 6. Doctor Introduction (Links to /doctor) */}
       <section className="bg-white py-20 border-y border-[#E8E7E1]">
         <Container size="lg">
-          {doctor && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              <div className="lg:col-span-5">
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-md">
-                  <img
-                    src={doctor.image}
-                    alt={doctor.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="lg:col-span-7 space-y-6">
-                <Badge variant="teal">Meet Your Dentist</Badge>
-                <h2 className="font-serif text-3xl sm:text-4xl font-medium text-[#17221F]">
-                  {doctor.name}
-                </h2>
-                <p className="text-xs uppercase tracking-wider text-[#526E68] font-semibold">
-                  {doctor.specialty}
-                </p>
-                <p className="text-sm md:text-base text-[#17221F]/70 leading-relaxed">
-                  {doctor.biography}
-                </p>
-                <div className="pt-2">
-                  <Link to="/doctor">
-                    <Button variant="primary">
-                      Meet Dr. Sarah Mitchell <ArrowRight className="w-4 h-4 ml-1" />
-                    </Button>
-                  </Link>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-md">
+                <img
+                  src={doctor.image}
+                  alt={doctor.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
-          )}
+            <div className="lg:col-span-7 space-y-6">
+              <Badge variant="teal">Meet Your Dentist</Badge>
+              <h2 className="font-serif text-3xl sm:text-4xl font-medium text-[#17221F]">
+                {doctor.name}
+              </h2>
+              <p className="text-xs uppercase tracking-wider text-[#526E68] font-semibold">
+                {doctor.specialty}
+              </p>
+              <p className="text-sm md:text-base text-[#17221F]/70 leading-relaxed">
+                {doctor.biography}
+              </p>
+              <div className="pt-2">
+                <Link to="/doctor">
+                  <Button variant="primary">
+                    Meet Dr. Sarah Mitchell <ArrowRight className="w-4 h-4 ml-1" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -354,22 +331,20 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Asymmetric Composition Layout */}
-          {gallery.length >= 4 && (
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-              <div className="md:col-span-7 rounded-2xl overflow-hidden aspect-[16/10] border border-[#E8E7E1] shadow-sm group">
-                <img src={gallery[0].image} alt={gallery[0].altText} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="md:col-span-5 rounded-2xl overflow-hidden aspect-[4/3] md:aspect-auto border border-[#E8E7E1] shadow-sm group">
-                <img src={gallery[1].image} alt={gallery[1].altText} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="md:col-span-5 rounded-2xl overflow-hidden aspect-[4/3] md:aspect-auto border border-[#E8E7E1] shadow-sm group">
-                <img src={gallery[2].image} alt={gallery[2].altText} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="md:col-span-7 rounded-2xl overflow-hidden aspect-[16/10] border border-[#E8E7E1] shadow-sm group">
-                <img src={gallery[3].image} alt={gallery[3].altText} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div className="md:col-span-7 rounded-2xl overflow-hidden aspect-[16/10] border border-[#E8E7E1] shadow-sm group">
+              <img src={featuredGallery[0].image} alt={featuredGallery[0].altText} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
-          )}
+            <div className="md:col-span-5 rounded-2xl overflow-hidden aspect-[4/3] md:aspect-auto border border-[#E8E7E1] shadow-sm group">
+              <img src={featuredGallery[1].image} alt={featuredGallery[1].altText} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div className="md:col-span-5 rounded-2xl overflow-hidden aspect-[4/3] md:aspect-auto border border-[#E8E7E1] shadow-sm group">
+              <img src={featuredGallery[2].image} alt={featuredGallery[2].altText} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div className="md:col-span-7 rounded-2xl overflow-hidden aspect-[16/10] border border-[#E8E7E1] shadow-sm group">
+              <img src={featuredGallery[3].image} alt={featuredGallery[3].altText} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+          </div>
         </Container>
       </section>
 

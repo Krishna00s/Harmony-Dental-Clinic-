@@ -66,6 +66,7 @@ export const Header: React.FC = () => {
               onClick={() => setMobileDrawerOpen(true)}
               className="lg:hidden p-2 text-[#17221F] hover:text-[#526E68] rounded-lg transition-colors"
               aria-label="Open navigation menu"
+              aria-expanded={mobileDrawerOpen}
             >
               <Menu className="w-6 h-6" />
             </button>

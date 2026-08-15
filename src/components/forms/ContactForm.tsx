@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button } from '../ui/Button';
-import { submitContactMessage } from '../../services/contactService';
 import { CheckCircle2, AlertCircle, Send } from 'lucide-react';
 
 export const ContactForm: React.FC = () => {
@@ -13,7 +12,7 @@ export const ContactForm: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
 
@@ -23,30 +22,26 @@ export const ContactForm: React.FC = () => {
     }
 
     setSubmitting(true);
-    try {
-      await submitContactMessage({ name, email, phone: phone.trim() || undefined, message });
-      setSuccess(true);
-    } catch (err: any) {
-      setErrorMsg(err.message || 'Failed to send message. Please try again.');
-    } finally {
+    setTimeout(() => {
       setSubmitting(false);
-    }
+      setSuccess(true);
+    }, 400);
   };
 
   if (success) {
     return (
-      <div className="bg-white border border-[#E8E7E1] rounded-2xl p-8 text-center max-w-md shadow-sm">
-        <div className="w-12 h-12 bg-[#526E68]/10 text-[#526E68] rounded-full flex items-center justify-center mx-auto mb-4">
+      <div className="bg-white border border-[#E8E7E1] rounded-2xl p-8 text-center shadow-sm space-y-4">
+        <div className="w-12 h-12 bg-[#526E68]/10 text-[#526E68] rounded-full flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-6 h-6" />
         </div>
-        <h3 className="font-serif text-xl font-medium text-[#17221F]">Message Sent</h3>
-        <p className="mt-2 text-xs sm:text-sm text-[#17221F]/70 leading-relaxed font-sans">
-          Thank you, <span className="font-semibold text-[#17221F]">{name}</span>. We have received your inquiry and will respond within 1 business day.
+        <h3 className="font-serif text-2xl font-medium text-[#17221F]">Message Received</h3>
+        <p className="text-xs sm:text-sm text-[#17221F]/70 leading-relaxed font-sans max-w-sm mx-auto">
+          Thank you, <span className="font-semibold text-[#17221F]">{name}</span>. Your message has been received for this demo.
         </p>
         <Button
           variant="outline"
           size="sm"
-          className="mt-6"
+          className="mt-4"
           onClick={() => {
             setSuccess(false);
             setName('');

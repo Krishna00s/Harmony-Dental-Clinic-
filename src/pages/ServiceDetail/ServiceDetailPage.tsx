@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Container } from '../../components/layout/Container';
 import { SectionHeader } from '../../components/layout/SectionHeader';
@@ -7,56 +7,28 @@ import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
 import { AccordionItem } from '../../components/ui/Accordion';
 import { BeforeAfterSlider } from '../../components/ui/BeforeAfterSlider';
-import { getServiceBySlug } from '../../services/servicesService';
-import { getBeforeAfterCases } from '../../services/beforeAfterService';
-import type { Service, BeforeAfterCase } from '../../types';
+import { servicesData } from '../../data/servicesData';
+import { beforeAfterData } from '../../data/beforeAfterData';
 import { ArrowLeft, Mail, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export const ServiceDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [service, setService] = useState<Service | null>(null);
-  const [beforeAfterCase, setBeforeAfterCase] = useState<BeforeAfterCase | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+
+  const service = servicesData.find((s) => s.slug === slug);
+  const beforeAfterCase = beforeAfterData[0];
 
   useEffect(() => {
-    const currentSlug = slug || '';
-    if (!currentSlug) return;
-
-    async function loadData() {
-      setLoading(true);
-      setError(null);
-      try {
-        const sData = await getServiceBySlug(currentSlug);
-        setService(sData);
-        document.title = `${sData.name} — Harmony Dental Care`;
-
-        // Load relevant before/after
-        const baData = await getBeforeAfterCases();
-        if (baData.length > 0) setBeforeAfterCase(baData[0]);
-      } catch (err: any) {
-        setError(err.message || 'Service not found.');
-      } finally {
-        setLoading(false);
-      }
+    if (service) {
+      document.title = `${service.name} — Harmony Dental Care`;
     }
-    loadData();
-  }, [slug]);
+  }, [service]);
 
-  if (loading) {
-    return (
-      <Container size="md" className="py-24 text-center">
-        <div className="text-[#17221F]/60 animate-pulse text-sm">Loading treatment information...</div>
-      </Container>
-    );
-  }
-
-  if (error || !service) {
+  if (!service) {
     return (
       <Container size="md" className="py-24 text-center space-y-6">
         <AlertCircle className="w-12 h-12 text-red-500 mx-auto" />
         <h2 className="font-serif text-3xl font-medium text-[#17221F]">Treatment Not Found</h2>
-        <p className="text-sm text-[#17221F]/70">The service endpoint could not locate details for "{slug}".</p>
+        <p className="text-sm text-[#17221F]/70">Could not locate details for treatment "{slug}".</p>
         <Link to="/services">
           <Button variant="outline">
             <ArrowLeft className="w-4 h-4 mr-2" /> Back to Services Catalog

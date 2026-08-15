@@ -1,30 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Container } from '../../components/layout/Container';
 import { SectionHeader } from '../../components/layout/SectionHeader';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Link } from 'react-router-dom';
-import { getTestimonials } from '../../services/testimonialsService';
-import type { Testimonial } from '../../types';
+import { testimonialsData } from '../../data/testimonialsData';
 import { Star, Quote, Mail } from 'lucide-react';
 
 export const ReviewsPage: React.FC = () => {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     document.title = 'Patient Reviews & Testimonials — Harmony Dental Care';
-    async function loadReviews() {
-      try {
-        const data = await getTestimonials();
-        setTestimonials(data);
-      } catch (err) {
-        console.error('Error loading reviews:', err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadReviews();
   }, []);
 
   return (
@@ -43,31 +28,27 @@ export const ReviewsPage: React.FC = () => {
       {/* Testimonials Catalog Grid */}
       <section>
         <Container size="lg">
-          {loading ? (
-            <div className="py-12 text-center text-sm text-[#17221F]/60">Loading patient reviews...</div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((t) => (
-                <Card key={t.id} className="flex flex-col justify-between space-y-6 p-8">
-                  <div className="space-y-4">
-                    <div className="flex text-amber-500">
-                      {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-                    <Quote className="w-8 h-8 text-[#526E68]/20" />
-                    <p className="font-serif text-xl text-[#17221F] italic leading-relaxed">
-                      "{t.quote}"
-                    </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonialsData.map((t) => (
+              <Card key={t.id} className="flex flex-col justify-between space-y-6 p-8">
+                <div className="space-y-4">
+                  <div className="flex text-amber-500">
+                    {[...Array(t.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
                   </div>
-                  <div className="pt-4 border-t border-[#E8E7E1] flex justify-between items-center text-xs">
-                    <span className="font-semibold text-[#17221F]">{t.displayName}</span>
-                    <span className="text-[#526E68] font-medium">{t.context}</span>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          )}
+                  <Quote className="w-8 h-8 text-[#526E68]/20" />
+                  <p className="font-serif text-xl text-[#17221F] italic leading-relaxed">
+                    "{t.quote}"
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#E8E7E1] flex justify-between items-center text-xs">
+                  <span className="font-semibold text-[#17221F]">{t.displayName}</span>
+                  <span className="text-[#526E68] font-medium">{t.context}</span>
+                </div>
+              </Card>
+            ))}
+          </div>
         </Container>
       </section>
 

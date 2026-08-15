@@ -1,0 +1,58 @@
+import type { Testimonial } from '../types';
+
+export const testimonialsData: Testimonial[] = [
+  {
+    id: 't-1',
+    displayName: 'Jessica R.',
+    quote: 'The team at Harmony Dental Care is unbelievable. Dr. Mitchell spent 20 minutes just sitting and listening to my anxiety before even looking at my teeth. I felt completely respected.',
+    context: 'Nervous Patient • Routine Care',
+    rating: 5,
+    approved: true,
+    featured: true,
+  },
+  {
+    id: 't-2',
+    displayName: 'Marcus T.',
+    quote: 'I avoided the dentist for nearly 5 years because of bad experiences elsewhere. Harmony Dental changed everything for me. Calm environment, zero judgment, and crystal-clear options.',
+    context: 'First-Time Patient • Restorative',
+    rating: 5,
+    approved: true,
+    featured: true,
+  },
+  {
+    id: 't-3',
+    displayName: 'Elena M.',
+    quote: 'My porcelain veneers look completely natural! Friends compliment my smile without ever guessing I had dental work done. Dr. Mitchell has incredible artistic skill.',
+    context: 'Cosmetic Patient • Veneers',
+    rating: 5,
+    approved: true,
+    featured: true,
+  },
+  {
+    id: 't-4',
+    displayName: 'David K.',
+    quote: 'When I cracked a molar on a Sunday evening, Harmony Dental got me in first thing Monday morning. Quick, painless root canal procedure and a perfect crown.',
+    context: 'Emergency Patient',
+    rating: 5,
+    approved: true,
+    featured: false,
+  },
+  {
+    id: 't-5',
+    displayName: 'Rachel & Sam B.',
+    quote: 'Our whole family comes to Harmony Dental. The practice environment is serene, the appointments start right on time, and the staff is wonderful with our kids.',
+    context: 'Family Patients • General Care',
+    rating: 5,
+    approved: true,
+    featured: false,
+  },
+  {
+    id: 't-6',
+    displayName: 'Harrison L.',
+    quote: 'Getting my single tooth implant done here was so smooth. The 3D imaging let me see the whole treatment plan beforehand. Highly recommended!',
+    context: 'Long-Term Patient • Dental Implant',
+    rating: 5,
+    approved: true,
+    featured: false,
+  },
+];

@@ -9,6 +9,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://harmonydental.demo/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://harmonydental.demo/services</loc>
     <priority>0.9</priority>
   </url>
@@ -25,6 +29,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://harmonydental.demo/services/porcelain-veneers</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://harmonydental.demo/services/teeth-whitening</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://harmonydental.demo/services/clear-aligners</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://harmonydental.demo/services/emergency-care</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://harmonydental.demo/doctor</loc>
     <priority>0.8</priority>
   </url>
@@ -33,15 +53,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/reviews</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://harmonydental.demo/contact</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://harmonydental.demo/book-appointment</loc>
     <priority>0.9</priority>
   </url>
 </urlset>

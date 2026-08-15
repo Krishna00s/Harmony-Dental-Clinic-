@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/Button';
-import { getAvailability } from '../../services/availabilityService';
-import { submitAppointmentRequest } from '../../services/appointmentService';
-import type { AvailabilitySlot, AppointmentRequestInput } from '../../types';
 import { CheckCircle2, Calendar as CalendarIcon, Clock, User, Mail, Phone, FileText, AlertCircle } from 'lucide-react';
 
 interface AppointmentFormProps {
@@ -17,9 +14,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({ initialService
     tomorrow.setDate(tomorrow.getDate() + 1);
     return tomorrow.toISOString().split('T')[0];
   });
-  const [availableSlots, setAvailableSlots] = useState<AvailabilitySlot[]>([]);
-  const [preferredTime, setPreferredTime] = useState('');
-  const [loadingSlots, setLoadingSlots] = useState(false);
+  const [preferredTime, setPreferredTime] = useState('09:00 AM');
 
   // Form Fields
   const [patientName, setPatientName] = useState('');
@@ -40,30 +35,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({ initialService
     if (initialServiceSlug === 'emergency-care') setAppointmentType('Emergency Care');
   }, [initialServiceSlug]);
 
-  // Load slots when date changes
-  useEffect(() => {
-    let isMounted = true;
-    async function loadSlots() {
-      setLoadingSlots(true);
-      try {
-        const slots = await getAvailability(preferredDate);
-        if (isMounted) {
-          setAvailableSlots(slots);
-          if (slots.length > 0 && !preferredTime) {
-            setPreferredTime(slots[0].startTime);
-          }
-        }
-      } catch (err: any) {
-        console.error('Error loading availability slots:', err);
-      } finally {
-        if (isMounted) setLoadingSlots(false);
-      }
-    }
-    loadSlots();
-    return () => {
-      isMounted = false;
-    };
-  }, [preferredDate]);
+  const availableTimes = ['09:00 AM', '10:30 AM', '01:30 PM', '03:00 PM', '04:30 PM'];
 
   const handleNextStep = (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,7 +47,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({ initialService
     setStep(2);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
 
@@ -85,24 +57,10 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({ initialService
     }
 
     setSubmitting(true);
-    try {
-      const payload: AppointmentRequestInput = {
-        patientName,
-        email,
-        phone,
-        preferredDate,
-        preferredTime,
-        appointmentType,
-        note: note.trim() || undefined,
-      };
-
-      await submitAppointmentRequest(payload);
-      setSuccess(true);
-    } catch (err: any) {
-      setErrorMsg(err.message || 'Failed to submit appointment request. Please try again.');
-    } finally {
+    setTimeout(() => {
       setSubmitting(false);
-    }
+      setSuccess(true);
+    }, 400);
   };
 
   if (success) {
@@ -111,16 +69,16 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({ initialService
         <div className="w-14 h-14 bg-[#526E68]/10 text-[#526E68] rounded-full flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 className="w-8 h-8" />
         </div>
-        <h3 className="font-serif text-2xl font-medium text-[#17221F]">Request Received</h3>
+        <h3 className="font-serif text-2xl font-medium text-[#17221F]">Request Submitted</h3>
         <p className="mt-3 text-sm text-[#17221F]/70 leading-relaxed font-sans">
           Thank you, <span className="font-semibold text-[#17221F]">{patientName}</span>. Your appointment request for{' '}
           <span className="font-semibold text-[#17221F]">{appointmentType}</span> on{' '}
           <span className="font-semibold text-[#17221F]">{preferredDate}</span> at{' '}
-          <span className="font-semibold text-[#17221F]">{preferredTime}</span> has been received.
+          <span className="font-semibold text-[#17221F]">{preferredTime}</span> has been submitted for this demo.
         </p>
         <div className="mt-6 p-4 bg-[#F7F7F4] rounded-xl text-xs text-[#17221F]/60 text-left space-y-1">
-          <p className="font-medium text-[#17221F]">What happens next?</p>
-          <p>Our scheduling coordinator will review availability and contact you at {phone} or {email} within 24 hours to finalize your appointment.</p>
+          <p className="font-medium text-[#17221F]">Demo Information:</p>
+          <p>This request is a client frontend demo presentation and has been validated locally.</p>
         </div>
         <Button
           variant="outline"
@@ -214,30 +172,22 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({ initialService
             <label className="block text-xs font-semibold text-[#17221F] uppercase tracking-wider mb-2 flex items-center">
               <Clock className="w-3.5 h-3.5 mr-1 text-[#526E68]" /> Available Time Slots
             </label>
-            {loadingSlots ? (
-              <div className="py-4 text-xs text-[#17221F]/60 animate-pulse">Loading availability...</div>
-            ) : availableSlots.length === 0 ? (
-              <div className="p-3 bg-[#F7F7F4] text-xs text-[#17221F]/60 rounded-xl">
-                No slots open for this date. Please select another day.
-              </div>
-            ) : (
-              <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                {availableSlots.map((slot) => (
-                  <button
-                    key={slot.id}
-                    type="button"
-                    onClick={() => setPreferredTime(slot.startTime)}
-                    className={`py-2.5 px-3 text-xs sm:text-sm font-medium rounded-xl border transition-all ${
-                      preferredTime === slot.startTime
-                        ? 'bg-[#17221F] text-white border-[#17221F] shadow-sm'
-                        : 'bg-[#F7F7F4] text-[#17221F] border-[#E8E7E1] hover:border-[#526E68]'
-                    }`}
-                  >
-                    {slot.startTime}
-                  </button>
-                ))}
-              </div>
-            )}
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
+              {availableTimes.map((timeStr) => (
+                <button
+                  key={timeStr}
+                  type="button"
+                  onClick={() => setPreferredTime(timeStr)}
+                  className={`py-2.5 px-3 text-xs sm:text-sm font-medium rounded-xl border transition-all ${
+                    preferredTime === timeStr
+                      ? 'bg-[#17221F] text-white border-[#17221F] shadow-sm'
+                      : 'bg-[#F7F7F4] text-[#17221F] border-[#E8E7E1] hover:border-[#526E68]'
+                  }`}
+                >
+                  {timeStr}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="pt-4">
@@ -321,11 +271,6 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({ initialService
               placeholder="Any specific requests or preferred contact method?"
               className="w-full bg-[#F7F7F4] border border-[#D9CFC0] rounded-xl px-4 py-3 text-sm text-[#17221F] focus:outline-none focus:ring-2 focus:ring-[#526E68]"
             />
-          </div>
-
-          {/* Healthcare Privacy Boundary Notice */}
-          <div className="p-3 bg-[#E8E7E1]/40 rounded-xl text-[11px] text-[#17221F]/70 leading-normal">
-            <span className="font-semibold text-[#17221F]">Privacy Notice:</span> This is an appointment request system. Please do not submit confidential medical history, symptoms, or insurance numbers in this form.
           </div>
 
           <div className="pt-2 flex items-center space-x-3">

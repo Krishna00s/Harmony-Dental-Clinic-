@@ -15,6 +15,7 @@ import { AboutPage } from './pages/About/AboutPage';
 import { ReviewsPage } from './pages/Reviews/ReviewsPage';
 import { ContactPage } from './pages/Contact/ContactPage';
 import { BookAppointmentPage } from './pages/BookAppointment/BookAppointmentPage';
+import { NotFoundPage } from './pages/NotFound/NotFoundPage';
 
 export const App: React.FC = () => {
   return (
@@ -34,8 +35,8 @@ export const App: React.FC = () => {
               <Route path="/reviews" element={<ReviewsPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/book-appointment" element={<BookAppointmentPage />} />
-              {/* Catch-all fallback */}
-              <Route path="*" element={<HomePage />} />
+              {/* 404 Fallback */}
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </PageWrapper>
         </main>
