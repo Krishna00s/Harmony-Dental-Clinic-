@@ -9,7 +9,7 @@ import { Star, Quote, Mail } from 'lucide-react';
 
 export const ReviewsPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Patient Reviews & Testimonials — Harmony Dental Care';
+    document.title = 'Patient Reviews & Testimonials — Harmony Dental Care | Dublin 2';
   }, []);
 
   return (
@@ -20,7 +20,7 @@ export const ReviewsPage: React.FC = () => {
           <SectionHeader
             eyebrow="Patient Feedback"
             title="Stories of Trust, Comfort, and Renewed Smiles"
-            description="Read authentic experiences shared by our patients about our care standards, atmosphere, and clinical results."
+            description="Read authentic experiences shared by our patients across Dublin about our care standards, atmosphere, and clinical results."
           />
         </Container>
       </section>
@@ -58,7 +58,7 @@ export const ReviewsPage: React.FC = () => {
           <div className="bg-[#17221F] text-white rounded-3xl p-10 text-center space-y-6">
             <h3 className="font-serif text-3xl font-medium">Have Questions for Our Practice?</h3>
             <p className="text-sm text-[#E8E7E1]/80 max-w-lg mx-auto">
-              Get in touch with our team anytime. We are happy to answer your questions.
+              Get in touch with our team in Dublin 2 anytime. We are happy to answer your questions.
             </p>
             <Link to="/contact">
               <Button variant="secondary" size="lg">

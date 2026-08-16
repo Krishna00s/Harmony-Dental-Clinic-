@@ -7,7 +7,7 @@ import { Button } from '../../components/ui/Button';
 
 export const ContactPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Contact Us — Harmony Dental Care';
+    document.title = 'Contact Us — Harmony Dental Care | Dublin 2';
   }, []);
 
   return (
@@ -18,7 +18,7 @@ export const ContactPage: React.FC = () => {
           <SectionHeader
             eyebrow="Contact Us"
             title="We're Here to Help"
-            description="Whether you have questions about our treatments, need directions to our practice, or want to speak with our front desk team, reach out anytime."
+            description="Whether you have questions about our treatments, need directions to our Merrion Square practice, or want to speak with our reception team, reach out anytime."
           />
         </Container>
       </section>
@@ -32,7 +32,7 @@ export const ContactPage: React.FC = () => {
               <div className="space-y-3">
                 <h3 className="font-serif text-3xl font-medium text-[#17221F]">Harmony Dental Care</h3>
                 <p className="text-sm text-[#17221F]/70 leading-relaxed font-sans max-w-lg">
-                  Located conveniently in San Diego’s healthcare district with dedicated, free patient parking and step-free access.
+                  Conveniently situated on Merrion Square South in Dublin 2, with accessible transport links via DART (Pearse Station), Dublin Bus, and Luas (St. Stephen’s Green).
                 </p>
               </div>
 
@@ -40,7 +40,7 @@ export const ContactPage: React.FC = () => {
               <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-sm border border-[#E8E7E1]">
                 <img
                   src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200"
-                  alt="Harmony Dental Practice Reception Area"
+                  alt="Harmony Dental Practice Reception Area in Dublin 2"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -53,7 +53,7 @@ export const ContactPage: React.FC = () => {
                     <span className="font-semibold text-xs text-[#17221F]">Address</span>
                   </div>
                   <p className="text-xs text-[#17221F]/70 font-sans leading-relaxed">
-                    123 Healthcare Way, Suite 400<br />San Diego, CA 92101
+                    42 Merrion Square South<br />Dublin 2, Co. Dublin, D02 X285
                   </p>
                 </div>
 
@@ -63,8 +63,8 @@ export const ContactPage: React.FC = () => {
                     <span className="font-semibold text-xs text-[#17221F]">Telephone</span>
                   </div>
                   <p className="text-xs text-[#17221F]/70 font-sans leading-relaxed">
-                    +1 (555) 234-5678<br />
-                    <span className="text-[10px] text-[#526E68]">Mon–Fri 8am–5pm</span>
+                    +353 (0)1 678 4500<br />
+                    <span className="text-[10px] text-[#526E68]">Mon–Thu 8:30–17:30</span>
                   </p>
                 </div>
 
@@ -74,8 +74,8 @@ export const ContactPage: React.FC = () => {
                     <span className="font-semibold text-xs text-[#17221F]">Email</span>
                   </div>
                   <p className="text-xs text-[#17221F]/70 font-sans leading-relaxed">
-                    hello@harmonydental.demo<br />
-                    <span className="text-[10px] text-[#526E68]">24h email response</span>
+                    hello@harmonydental.ie<br />
+                    <span className="text-[10px] text-[#526E68]">Prompt email response</span>
                   </p>
                 </div>
 
@@ -85,8 +85,8 @@ export const ContactPage: React.FC = () => {
                     <span className="font-semibold text-xs text-[#17221F]">Practice Hours</span>
                   </div>
                   <p className="text-xs text-[#17221F]/70 font-sans leading-relaxed">
-                    Mon–Thu: 8am – 5pm<br />
-                    Fri: 8am – 2pm (Sat/Sun Closed)
+                    Mon–Thu: 08:30 – 17:30<br />
+                    Fri: 08:30 – 16:00 (Sat by Appt)
                   </p>
                 </div>
               </div>
@@ -96,18 +96,18 @@ export const ContactPage: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <MapPin className="w-5 h-5 text-[#526E68]" />
-                    <h4 className="font-serif text-lg font-semibold text-[#17221F]">San Diego Clinic Location</h4>
+                    <h4 className="font-serif text-lg font-semibold text-[#17221F]">Dublin 2 Practice Location</h4>
                   </div>
                   <span className="text-[11px] font-semibold text-[#526E68] bg-[#526E68]/10 px-2.5 py-1 rounded-full">
-                    Free Parking Available
+                    Merrion Square South
                   </span>
                 </div>
                 <p className="text-xs text-[#17221F]/70 leading-relaxed font-sans">
-                  Located near Balboa Park on Healthcare Way. Dedicated patient parking spaces are located immediately adjacent to the building entrance.
+                  Located on the south side of Merrion Square in central Dublin 2. Pay and display street parking is available along Merrion Square, with easy access to DART and bus routes.
                 </p>
                 <div className="pt-1">
                   <a
-                    href="https://maps.google.com/?q=123+Healthcare+Way+San+Diego+CA"
+                    href="https://maps.google.com/?q=Merrion+Square+South+Dublin+2+Ireland"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center"

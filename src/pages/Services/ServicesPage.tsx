@@ -10,7 +10,7 @@ import { ArrowRight, Mail } from 'lucide-react';
 
 export const ServicesPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Treatments & Services — Harmony Dental Care';
+    document.title = 'Treatments & Services — Harmony Dental Care | Dublin 2';
   }, []);
 
   return (
@@ -40,7 +40,7 @@ export const ServicesPage: React.FC = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  {service.featured && <Badge variant="teal" className="mb-3">Featured Specialization</Badge>}
+                  {service.featured && <Badge variant="teal" className="mb-3">Featured Specialisation</Badge>}
                   <h3 className="font-serif text-2xl font-medium text-[#17221F] mb-3">{service.name}</h3>
                   <p className="text-xs sm:text-sm text-[#17221F]/70 leading-relaxed font-sans mb-6">
                     {service.shortDescription}
@@ -64,7 +64,7 @@ export const ServicesPage: React.FC = () => {
           <div className="bg-[#17221F] text-white rounded-3xl p-10 md:p-14 text-center space-y-6">
             <h3 className="font-serif text-3xl md:text-4xl font-medium">Unsure Which Treatment You Need?</h3>
             <p className="text-sm text-[#E8E7E1]/80 max-w-xl mx-auto">
-              Have questions about a specific procedure? Reach out to our clinical team and we will be happy to assist you.
+              Have questions about a specific procedure? Reach out to our clinical team in Dublin 2 and we will be happy to assist you.
             </p>
             <Link to="/contact">
               <Button variant="secondary" size="lg">

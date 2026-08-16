@@ -86,7 +86,7 @@ export const ContactForm: React.FC = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="jane@example.com"
+            placeholder="jane@example.ie"
             className="w-full bg-[#F7F7F4] border border-[#D9CFC0] rounded-xl px-4 py-2.5 text-sm text-[#17221F] focus:outline-none focus:ring-2 focus:ring-[#526E68]"
             required
           />
@@ -97,7 +97,7 @@ export const ContactForm: React.FC = () => {
             type="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            placeholder="+1 (555) 000-0000"
+            placeholder="+353 (0)87 000 0000"
             className="w-full bg-[#F7F7F4] border border-[#D9CFC0] rounded-xl px-4 py-2.5 text-sm text-[#17221F] focus:outline-none focus:ring-2 focus:ring-[#526E68]"
           />
         </div>

@@ -14,7 +14,7 @@ import { ArrowRight, Star, ShieldCheck, Award, Users, HeartHandshake, CheckCircl
 
 export const HomePage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Harmony Dental Care — Thoughtful Care, Without the Noise';
+    document.title = 'Harmony Dental Care — Private Dentistry in Dublin 2';
   }, []);
 
   const featuredServices = servicesData.slice(0, 3);
@@ -39,7 +39,7 @@ export const HomePage: React.FC = () => {
               </h1>
 
               <p className="text-base sm:text-lg text-[#17221F]/70 font-sans max-w-xl leading-relaxed">
-                Personalized dental care built around listening, clear guidance, and a treatment plan that makes sense for you in a comfortable environment.
+                Personalised private dental care built around listening, clear guidance, and a treatment plan that makes sense for you in central Dublin.
               </p>
             </div>
 
@@ -48,7 +48,7 @@ export const HomePage: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#E8E7E1] aspect-[4/3] sm:aspect-[4/3] lg:aspect-[4/5]">
                 <img
                   src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200"
-                  alt="Harmony Dental Care modern treatment suite"
+                  alt="Harmony Dental Care modern treatment suite in Dublin 2"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#17221F]/40 via-transparent to-transparent" />
@@ -68,7 +68,7 @@ export const HomePage: React.FC = () => {
               </Link>
               <Link to="/doctor" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                  Meet Our Doctor
+                  Meet Our Dentist
                 </Button>
               </Link>
             </div>
@@ -127,7 +127,7 @@ export const HomePage: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-serif text-xl font-semibold text-[#17221F]">High Standards</h4>
-                <p className="text-xs text-[#17221F]/60">Hospital-Grade Hygiene</p>
+                <p className="text-xs text-[#17221F]/60">Hospital-Grade Sterilisation</p>
               </div>
             </div>
 
@@ -163,7 +163,7 @@ export const HomePage: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle2 className="w-4 h-4 text-[#526E68] flex-shrink-0" />
-                  <span>Transparent upfront pricing</span>
+                  <span>Transparent upfront fees</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle2 className="w-4 h-4 text-[#526E68] flex-shrink-0" />
@@ -171,7 +171,7 @@ export const HomePage: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle2 className="w-4 h-4 text-[#526E68] flex-shrink-0" />
-                  <span>Hospital-grade sterilization</span>
+                  <span>Hospital-grade sterilisation</span>
                 </div>
               </div>
               <div className="pt-2">
@@ -189,7 +189,7 @@ export const HomePage: React.FC = () => {
                   <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800" alt="Comfortable dental treatment suite" className="w-full h-full object-cover" />
                 </div>
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-md mt-8">
-                  <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Sterilized clinical tools" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Sterilised clinical tools" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -252,7 +252,7 @@ export const HomePage: React.FC = () => {
                 Precise Restorations. Natural Results.
               </h2>
               <p className="text-sm md:text-base text-[#17221F]/70 leading-relaxed">
-                Drag the interactive slider handle to see before and after treatment outcomes. We focus on conservative, natural restorations that preserve your healthy enamel while harmonizing your bite.
+                Drag the interactive slider handle to see before and after treatment outcomes. We focus on conservative, natural restorations that preserve your healthy enamel while harmonising your bite.
               </p>
               <div className="pt-2">
                 <Link to="/services/porcelain-veneers">
@@ -304,7 +304,7 @@ export const HomePage: React.FC = () => {
               <div className="pt-2">
                 <Link to="/doctor">
                   <Button variant="primary">
-                    Meet Dr. Sarah Mitchell <ArrowRight className="w-4 h-4 ml-1" />
+                    Meet Dr. Siobhán O'Connor <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
                 </Link>
               </div>
@@ -356,7 +356,7 @@ export const HomePage: React.FC = () => {
               Have Questions About Your Oral Health?
             </h2>
             <p className="text-sm md:text-base text-[#E8E7E1]/80 max-w-xl mx-auto font-sans leading-relaxed">
-              We are here to help. Reach out to our friendly team to learn more about our practice, treatments, or location.
+              We are here to help. Reach out to our friendly team in Dublin 2 to learn more about our practice, treatments, or location.
             </p>
             <div className="pt-4">
               <Link to="/contact">

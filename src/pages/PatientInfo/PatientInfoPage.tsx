@@ -10,7 +10,7 @@ import { Shield, CreditCard, Mail } from 'lucide-react';
 
 export const PatientInfoPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Patient Information & FAQ — Harmony Dental Care';
+    document.title = 'Patient Information & FAQ — Harmony Dental Care | Dublin 2';
   }, []);
 
   return (
@@ -21,7 +21,7 @@ export const PatientInfoPage: React.FC = () => {
           <SectionHeader
             eyebrow="Patient Information"
             title="Everything You Need to Know Before Your Visit"
-            description="We want your experience with us to be transparent, smooth, and stress-free from the moment you step through our doors."
+            description="We want your experience with us to be transparent, smooth, and stress-free from the moment you step through our doors in Dublin 2."
           />
         </Container>
       </section>
@@ -51,7 +51,7 @@ export const PatientInfoPage: React.FC = () => {
               </div>
               <h3 className="font-serif text-2xl font-medium text-[#17221F]">Comprehensive Exam</h3>
               <p className="text-xs sm:text-sm text-[#17221F]/70 leading-relaxed font-sans">
-                Dr. Mitchell will review your oral health history, conduct a gentle examination, and take low-dose digital images as needed.
+                Dr. O'Connor will review your oral health history, conduct a gentle examination, and take low-dose digital images as needed.
               </p>
             </Card>
 
@@ -61,7 +61,7 @@ export const PatientInfoPage: React.FC = () => {
               </div>
               <h3 className="font-serif text-2xl font-medium text-[#17221F]">Open Discussion</h3>
               <p className="text-xs sm:text-sm text-[#17221F]/70 leading-relaxed font-sans">
-                We present clear findings and options. No pressure, no unexpected costs — just honest guidance built around your timeline.
+                We present clear findings and options. No pressure, no unexpected fees — just honest guidance built around your timeline.
               </p>
             </Card>
           </div>
@@ -74,17 +74,17 @@ export const PatientInfoPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <Card className="space-y-4 p-8">
               <CreditCard className="w-8 h-8 text-[#526E68]" />
-              <h3 className="font-serif text-2xl font-medium text-[#17221F]">Insurance & Billing</h3>
+              <h3 className="font-serif text-2xl font-medium text-[#17221F]">Payment & Itemised Receipts</h3>
               <p className="text-xs sm:text-sm text-[#17221F]/70 leading-relaxed">
-                We accept most major PPO dental insurance plans. Our front desk staff will handle claims processing directly on your behalf to maximize your benefits.
+                We provide clear itemised fee receipts for all private treatments. For eligible procedures qualifying for Irish tax relief (MED 2 form), our reception team will issue official tax documentation.
               </p>
             </Card>
 
             <Card className="space-y-4 p-8">
               <Shield className="w-8 h-8 text-[#526E68]" />
-              <h3 className="font-serif text-2xl font-medium text-[#17221F]">Patient Safety & Hygiene</h3>
+              <h3 className="font-serif text-2xl font-medium text-[#17221F]">Patient Safety & Sterilisation</h3>
               <p className="text-xs sm:text-sm text-[#17221F]/70 leading-relaxed">
-                We follow strict hospital-grade sterilization protocols exceeding CDC and ADA recommendations to ensure complete peace of mind during every procedure.
+                We follow strict hospital-grade sterilisation protocols exceeding Dental Council of Ireland and European health recommendations to ensure complete peace of mind.
               </p>
             </Card>
           </div>
@@ -118,7 +118,7 @@ export const PatientInfoPage: React.FC = () => {
           <div className="bg-[#17221F] text-white rounded-3xl p-10 text-center space-y-6">
             <h3 className="font-serif text-3xl font-medium">Have Additional Questions?</h3>
             <p className="text-sm text-[#E8E7E1]/80 max-w-lg mx-auto">
-              Our friendly administrative team is happy to assist you by phone or email.
+              Our friendly administrative team in Dublin 2 is happy to assist you by phone or email.
             </p>
             <div className="flex justify-center">
               <Link to="/contact">

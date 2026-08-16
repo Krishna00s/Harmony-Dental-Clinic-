@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-xs text-[#E8E7E1]/70 leading-relaxed font-sans max-w-sm">
-              Personalized dental care built around listening, clear guidance, and a treatment plan that makes sense for you in a comfortable environment.
+              Personalised private dental care built around clear guidance, patient comfort, and conservative treatment plans in Dublin 2.
             </p>
             <p className="text-[11px] text-[#D9CFC0]/50 italic">
               A sales & technology demo by Zenova Enterprises.
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/doctor" className="hover:text-[#D9CFC0] transition-colors">
-                  Meet Dr. Mitchell
+                  Meet Dr. O'Connor
                 </Link>
               </li>
               <li>
@@ -51,8 +51,13 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/reviews" className="hover:text-[#D9CFC0] transition-colors">
-                  Patient Reviews
+                <Link to="/about" className="hover:text-[#D9CFC0] transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-[#D9CFC0] transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -66,18 +71,18 @@ export const Footer: React.FC = () => {
                 <Clock className="w-4 h-4 text-[#526E68] flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium text-white">Mon – Thu</p>
-                  <p className="text-[#E8E7E1]/60">8:00 AM – 5:00 PM</p>
+                  <p className="text-[#E8E7E1]/60">08:30 – 17:30</p>
                 </div>
               </div>
               <div className="flex items-start space-x-2 pt-1">
                 <Clock className="w-4 h-4 text-[#526E68] flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium text-white">Friday</p>
-                  <p className="text-[#E8E7E1]/60">8:00 AM – 2:00 PM</p>
+                  <p className="text-[#E8E7E1]/60">08:30 – 16:00</p>
                 </div>
               </div>
               <div className="pt-1 text-[#D9CFC0]/60 text-[11px]">
-                Sat & Sun: Closed (Emergency line available)
+                Saturday: By prior appointment
               </div>
             </div>
           </div>
@@ -88,15 +93,15 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-xs text-[#E8E7E1]/80 font-sans">
               <li className="flex items-start space-x-2.5">
                 <MapPin className="w-4 h-4 text-[#526E68] flex-shrink-0 mt-0.5" />
-                <span>123 Healthcare Way, Suite 400, San Diego, CA 92101</span>
+                <span>42 Merrion Square South, Dublin 2, Co. Dublin, D02 X285</span>
               </li>
               <li className="flex items-center space-x-2.5">
                 <Phone className="w-4 h-4 text-[#526E68] flex-shrink-0" />
-                <span>+1 (555) 234-5678</span>
+                <span>+353 (0)1 678 4500</span>
               </li>
               <li className="flex items-center space-x-2.5">
                 <Mail className="w-4 h-4 text-[#526E68] flex-shrink-0" />
-                <span>hello@harmonydental.demo</span>
+                <span>hello@harmonydental.ie</span>
               </li>
             </ul>
           </div>

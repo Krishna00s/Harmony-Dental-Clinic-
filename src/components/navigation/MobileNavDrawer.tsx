@@ -96,7 +96,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({ isOpen, onClos
             </Button>
           </NavLink>
           <div className="mt-4 text-center text-xs text-[#17221F]/60 font-sans">
-            San Diego, CA • +1 (555) 234-5678
+            Dublin 2 • +353 (0)1 678 4500
           </div>
         </div>
       </div>

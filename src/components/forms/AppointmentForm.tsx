@@ -35,7 +35,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({ initialService
     if (initialServiceSlug === 'emergency-care') setAppointmentType('Emergency Care');
   }, [initialServiceSlug]);
 
-  const availableTimes = ['09:00 AM', '10:30 AM', '01:30 PM', '03:00 PM', '04:30 PM'];
+  const availableTimes = ['08:30 AM', '10:00 AM', '11:30 AM', '02:00 PM', '03:30 PM'];
 
   const handleNextStep = (e: React.FormEvent) => {
     e.preventDefault();
@@ -239,7 +239,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({ initialService
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="jane@example.com"
+                placeholder="jane@example.ie"
                 className="w-full bg-[#F7F7F4] border border-[#D9CFC0] rounded-xl px-4 py-3 text-sm text-[#17221F] focus:outline-none focus:ring-2 focus:ring-[#526E68]"
                 required
               />
@@ -252,7 +252,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({ initialService
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="+1 (555) 000-0000"
+                placeholder="+353 (0)87 000 0000"
                 className="w-full bg-[#F7F7F4] border border-[#D9CFC0] rounded-xl px-4 py-3 text-sm text-[#17221F] focus:outline-none focus:ring-2 focus:ring-[#526E68]"
                 required
               />

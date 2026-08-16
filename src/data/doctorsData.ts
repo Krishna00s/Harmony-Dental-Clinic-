@@ -3,15 +3,15 @@ import type { Doctor } from '../types';
 export const doctorsData: Doctor[] = [
   {
     id: 'doc-1',
-    name: 'Dr. Sarah Mitchell, DDS',
-    specialty: 'Cosmetic & Restorative Dental Specialist',
-    biography: 'Dr. Sarah Mitchell has dedicated over 15 years to providing patient-centered dental care. She earned her Doctor of Dental Surgery degree with high honors from UCSF School of Dentistry and regularly completes advanced international training in minimally invasive aesthetic restoration and digital implantology. Her philosophy centers on active listening, clinical precision, and creating a calming environment where every patient feels completely heard and comfortable.',
+    name: "Dr. Siobhán O'Connor, BDS",
+    specialty: 'General & Restorative Dental Specialist',
+    biography: "Dr. Siobhán O'Connor has dedicated over 15 years to providing patient-centred dental care in Dublin. Born and raised in Co. Dublin, she earned her Bachelor of Dental Surgery degree with first class honours from Trinity College Dublin and holds Membership of the Faculty of Dentistry at the Royal College of Surgeons in Ireland (RCSI). She regularly completes postgraduate training in minimally invasive aesthetic restoration and digital dentistry. Her clinical philosophy focuses on active listening, precise technique, and creating a calm environment where nervous patients feel completely supported.",
     credentials: [
-      'DDS — Doctor of Dental Surgery (UCSF School of Dentistry, Class Honors)',
-      'Fellowship — International Congress of Oral Implantologists (ICOI)',
-      'Member — American Academy of Cosmetic Dentistry (AACD)',
-      'Member — American Dental Association (ADA) & California Dental Association (CDA)',
-      'Advanced Certification in Low-Dose 3D Cone Beam Imaging & CAD/CAM Restorations',
+      'BDS — Bachelor of Dental Surgery (Trinity College Dublin, First Class Honours)',
+      'MFD — Member of the Faculty of Dentistry (Royal College of Surgeons in Ireland — RCSI)',
+      'PgDip — Postgraduate Diploma in Aesthetic Restorative Dentistry',
+      'Member — Irish Dental Association (IDA)',
+      'Advanced Training in Low-Dose Digital Radiography & Minimally Invasive Care',
     ],
     image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1000',
     featured: true,

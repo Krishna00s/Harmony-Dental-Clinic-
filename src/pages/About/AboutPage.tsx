@@ -6,11 +6,14 @@ import { Badge } from '../../components/ui/Badge';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Mail, ShieldCheck, HeartHandshake, Sparkles } from 'lucide-react';
+import { doctorsData } from '../../data/doctorsData';
 
 export const AboutPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'About Us — Harmony Dental Care';
+    document.title = 'About Us — Harmony Dental Care | Dublin 2';
   }, []);
+
+  const doctor = doctorsData[0];
 
   return (
     <div className="space-y-20 md:space-y-28 pb-16">
@@ -20,12 +23,12 @@ export const AboutPage: React.FC = () => {
           <SectionHeader
             eyebrow="About Harmony Dental Care"
             title="A Calm, Thoughtful Approach to Modern Dentistry"
-            description="Founded with the belief that healthcare should feel personal, reassuring, and transparent. We exist to provide dental care centered entirely around your comfort and long-term well-being."
+            description="Founded with the belief that healthcare should feel personal, reassuring, and transparent. We exist to provide dental care centred entirely around your comfort and long-term well-being."
           />
           <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-md border border-[#E8E7E1] mt-8">
             <img
               src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1600"
-              alt="Harmony Dental Care practice environment"
+              alt="Harmony Dental Care practice environment in Dublin 2"
               className="w-full h-full object-cover"
             />
           </div>
@@ -42,7 +45,7 @@ export const AboutPage: React.FC = () => {
                 Redefining the Dental Visit Experience
               </h2>
               <p className="text-sm md:text-base text-[#17221F]/70 leading-relaxed font-sans">
-                Dental appointments often evoke anxiety or feel transactional. At Harmony Dental Care, we designed our practice from the ground up to counteract that norm. We prioritize unhurried conversations, acoustic comfort, and gentle clinical mastery.
+                Dental appointments often evoke anxiety or feel transactional. At Harmony Dental Care, we designed our Dublin practice from the ground up to counteract that norm. We prioritise unhurried conversations, acoustic comfort, and gentle clinical mastery.
               </p>
               <p className="text-sm md:text-base text-[#17221F]/70 leading-relaxed font-sans">
                 Every member of our team is trained not only in advanced clinical techniques, but in active listening and empathetic patient communication.
@@ -54,7 +57,7 @@ export const AboutPage: React.FC = () => {
                 <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-md">
                   <img
                     src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
-                    alt="Dr. Sarah Mitchell listening to a patient"
+                    alt="Dr. Siobhán O'Connor listening to a patient"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -96,7 +99,7 @@ export const AboutPage: React.FC = () => {
               </div>
               <h3 className="font-serif text-2xl font-medium text-[#17221F]">Clinical Precision</h3>
               <p className="text-xs sm:text-sm text-[#17221F]/70 leading-relaxed font-sans">
-                We utilize state-of-the-art 3D imaging, digital shade matching, and hospital-grade sterilization to deliver long-lasting, predictable results.
+                We utilise state-of-the-art 3D imaging, digital shade matching, and hospital-grade sterilisation to deliver long-lasting, predictable results.
               </p>
             </Card>
 
@@ -121,8 +124,8 @@ export const AboutPage: React.FC = () => {
               <div className="lg:col-span-5">
                 <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-md">
                   <img
-                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800"
-                    alt="Dr. Sarah Mitchell"
+                    src={doctor.image}
+                    alt={doctor.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -131,13 +134,13 @@ export const AboutPage: React.FC = () => {
               <div className="lg:col-span-7 space-y-6">
                 <Badge variant="teal">Lead Practitioner</Badge>
                 <h3 className="font-serif text-3xl sm:text-4xl font-medium text-[#17221F]">
-                  Dr. Sarah Mitchell, DDS
+                  {doctor.name}
                 </h3>
                 <p className="text-xs uppercase tracking-wider text-[#526E68] font-semibold">
-                  Cosmetic & Restorative Dental Specialist
+                  {doctor.specialty}
                 </p>
                 <p className="text-sm md:text-base text-[#17221F]/80 leading-relaxed font-sans">
-                  "My goal has always been to build a dental practice where patients look forward to their visits. By combining advanced clinical technology with genuine human warmth, we help our patients achieve healthy, confident smiles without stress."
+                  "{doctor.biography}"
                 </p>
                 <div className="pt-2">
                   <Link to="/doctor">
@@ -158,7 +161,7 @@ export const AboutPage: React.FC = () => {
           <div className="bg-[#17221F] text-white rounded-3xl p-10 md:p-14 text-center space-y-6">
             <h3 className="font-serif text-3xl md:text-4xl font-medium">Get in Touch with Harmony Dental</h3>
             <p className="text-sm text-[#E8E7E1]/80 max-w-lg mx-auto">
-              We warmly welcome new patients. Contact our San Diego practice team to learn more about our philosophy and services.
+              We warmly welcome new private patients. Contact our Dublin practice team to learn more about our philosophy and services.
             </p>
             <Link to="/contact">
               <Button variant="secondary" size="lg">

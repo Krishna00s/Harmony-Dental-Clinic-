@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://harmonydental.demo/</loc>
+    <loc>https://harmonydental.ie/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/practice</loc>
+    <loc>https://harmonydental.ie/practice</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/about</loc>
+    <loc>https://harmonydental.ie/about</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/services</loc>
+    <loc>https://harmonydental.ie/services</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/services/general-dentistry</loc>
+    <loc>https://harmonydental.ie/services/general-dentistry</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/services/cosmetic-dentistry</loc>
+    <loc>https://harmonydental.ie/services/cosmetic-dentistry</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/services/dental-implants</loc>
+    <loc>https://harmonydental.ie/services/dental-implants</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/services/porcelain-veneers</loc>
+    <loc>https://harmonydental.ie/services/porcelain-veneers</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/services/teeth-whitening</loc>
+    <loc>https://harmonydental.ie/services/teeth-whitening</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/services/clear-aligners</loc>
+    <loc>https://harmonydental.ie/services/clear-aligners</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/services/emergency-care</loc>
+    <loc>https://harmonydental.ie/services/emergency-care</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/doctor</loc>
+    <loc>https://harmonydental.ie/doctor</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/patient-info</loc>
+    <loc>https://harmonydental.ie/patient-info</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://harmonydental.demo/contact</loc>
+    <loc>https://harmonydental.ie/contact</loc>
     <priority>0.9</priority>
   </url>
 </urlset>

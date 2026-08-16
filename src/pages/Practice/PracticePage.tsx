@@ -14,7 +14,7 @@ export const PracticePage: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
   useEffect(() => {
-    document.title = 'Our Practice — Harmony Dental Care';
+    document.title = 'Our Practice — Harmony Dental Care | Dublin 2';
   }, []);
 
   return (
@@ -30,7 +30,7 @@ export const PracticePage: React.FC = () => {
           <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-md border border-[#E8E7E1] mt-8">
             <img
               src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1600"
-              alt="Harmony Dental Practice Interior"
+              alt="Harmony Dental Practice Interior in Dublin 2"
               className="w-full h-full object-cover"
             />
           </div>
@@ -42,7 +42,7 @@ export const PracticePage: React.FC = () => {
         <Container size="lg">
           <SectionHeader
             eyebrow="Our Philosophy"
-            title="The 4 Pillars of Patient-Centered Care"
+            title="The 4 Pillars of Patient-Centred Care"
             centered
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

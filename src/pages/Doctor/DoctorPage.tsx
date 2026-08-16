@@ -10,7 +10,7 @@ import { CheckCircle2, GraduationCap, Mail } from 'lucide-react';
 
 export const DoctorPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Our Doctor — Dr. Sarah Mitchell, DDS | Harmony Dental Care';
+    document.title = "Our Dentist — Dr. Siobhán O'Connor, BDS | Harmony Dental Care";
   }, []);
 
   const doctor = doctorsData[0];
@@ -44,7 +44,7 @@ export const DoctorPage: React.FC = () => {
               <div className="pt-2">
                 <Link to="/contact">
                   <Button variant="primary" size="lg">
-                    <Mail className="w-4 h-4 mr-2" /> Get in Touch with Dr. Mitchell
+                    <Mail className="w-4 h-4 mr-2" /> Get in Touch with Dr. O'Connor
                   </Button>
                 </Link>
               </div>
@@ -60,7 +60,7 @@ export const DoctorPage: React.FC = () => {
             <div className="lg:col-span-6 space-y-6">
               <SectionHeader
                 eyebrow="Credentials & Qualifications"
-                title="Rigorous Education & Continuous Excellence"
+                title="Education & Clinical Excellence"
               />
               <div className="space-y-4">
                 {doctor.credentials.map((cred, idx) => (
@@ -75,13 +75,13 @@ export const DoctorPage: React.FC = () => {
             <div className="lg:col-span-6 space-y-6">
               <SectionHeader
                 eyebrow="Areas of Interest"
-                title="Specialized Clinical Focus"
+                title="Specialised Clinical Focus"
               />
               <Card className="space-y-4 p-8">
                 <div className="flex items-start space-x-3">
                   <CheckCircle2 className="w-5 h-5 text-[#526E68] mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-serif text-xl font-medium text-[#17221F]">Minimally Invasive Cosmetic Dentistry</h4>
+                    <h4 className="font-serif text-xl font-medium text-[#17221F]">Minimally Invasive Aesthetic Dentistry</h4>
                     <p className="text-xs sm:text-sm text-[#17221F]/70 mt-1">Preserving maximum natural tooth structure while enhancing translucency and shade.</p>
                   </div>
                 </div>
@@ -90,7 +90,7 @@ export const DoctorPage: React.FC = () => {
                   <CheckCircle2 className="w-5 h-5 text-[#526E68] mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-serif text-xl font-medium text-[#17221F]">Digital Implant Planning</h4>
-                    <p className="text-xs sm:text-sm text-[#17221F]/70 mt-1">Utilizing precise 3D cone-beam imaging for exact titanium post placement and restoration.</p>
+                    <p className="text-xs sm:text-sm text-[#17221F]/70 mt-1">Utilising precise 3D cone-beam imaging for exact titanium post placement and restoration.</p>
                   </div>
                 </div>
 
@@ -111,9 +111,9 @@ export const DoctorPage: React.FC = () => {
       <section>
         <Container size="lg">
           <div className="bg-[#17221F] text-white rounded-3xl p-10 text-center space-y-6">
-            <h3 className="font-serif text-3xl font-medium">Have Questions for Dr. Mitchell?</h3>
+            <h3 className="font-serif text-3xl font-medium">Have Questions for Dr. O'Connor?</h3>
             <p className="text-sm text-[#E8E7E1]/80 max-w-lg mx-auto">
-              Reach out to our team anytime. We look forward to welcoming you to Harmony Dental Care.
+              Reach out to our team anytime. We look forward to welcoming you to Harmony Dental Care in Dublin 2.
             </p>
             <Link to="/contact">
               <Button variant="secondary" size="lg">

@@ -19,7 +19,7 @@ export const ServiceDetailPage: React.FC = () => {
 
   useEffect(() => {
     if (service) {
-      document.title = `${service.name} — Harmony Dental Care`;
+      document.title = `${service.name} — Harmony Dental Care | Dublin 2`;
     }
   }, [service]);
 
@@ -48,7 +48,7 @@ export const ServiceDetailPage: React.FC = () => {
           </Link>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <Badge variant="teal">Specialized Dental Treatment</Badge>
+              <Badge variant="teal">Specialised Dental Treatment</Badge>
               <h1 className="font-serif text-4xl sm:text-5xl font-medium text-[#17221F] tracking-tight">
                 {service.name}
               </h1>
@@ -86,11 +86,11 @@ export const ServiceDetailPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-[#17221F]/80">
                 <div className="flex items-start space-x-2">
                   <CheckCircle2 className="w-4 h-4 text-[#526E68] mt-0.5 flex-shrink-0" />
-                  <span>Personalized step-by-step treatment plan</span>
+                  <span>Personalised step-by-step treatment plan</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <CheckCircle2 className="w-4 h-4 text-[#526E68] mt-0.5 flex-shrink-0" />
-                  <span>Hospital-grade sterilization & digital imaging</span>
+                  <span>Hospital-grade sterilisation & digital imaging</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <CheckCircle2 className="w-4 h-4 text-[#526E68] mt-0.5 flex-shrink-0" />
@@ -98,7 +98,7 @@ export const ServiceDetailPage: React.FC = () => {
                 </div>
                 <div className="flex items-start space-x-2">
                   <CheckCircle2 className="w-4 h-4 text-[#526E68] mt-0.5 flex-shrink-0" />
-                  <span>Clear upfront pricing with no hidden fees</span>
+                  <span>Clear transparent fees with no unexpected costs</span>
                 </div>
               </div>
             </div>
@@ -144,12 +144,12 @@ export const ServiceDetailPage: React.FC = () => {
               defaultOpen={true}
             />
             <AccordionItem
-              question="Is the procedure painful?"
-              answer="Your comfort is our priority. We employ gentle local anesthetics and soothing clinical techniques to ensure your visit is completely pain-free."
+              question="Is the procedure uncomfortable?"
+              answer="Your comfort is our top priority. We employ gentle local anaesthetics and soothing clinical techniques to ensure your visit is completely pain-free."
             />
             <AccordionItem
-              question="Will insurance cover this treatment?"
-              answer="Many preventive and restorative treatments are partially or fully covered by major PPO plans. Our coordinator will review your coverage before proceeding."
+              question="Can I claim tax relief on dental treatment?"
+              answer="Certain non-routine dental procedures in Ireland qualify for tax relief via the MED 2 form. Our reception team will happily provide itemised receipts and official MED 2 tax documentation upon request."
             />
           </div>
         </Container>
@@ -161,7 +161,7 @@ export const ServiceDetailPage: React.FC = () => {
           <div className="bg-[#17221F] text-white rounded-3xl p-10 text-center space-y-6">
             <h3 className="font-serif text-3xl font-medium">Interested in {service.name}?</h3>
             <p className="text-sm text-[#E8E7E1]/80 max-w-lg mx-auto">
-              Get in touch with our team to ask questions or learn more about this treatment.
+              Get in touch with our team in Dublin 2 to ask questions or learn more about this treatment.
             </p>
             <Link to="/contact">
               <Button variant="secondary" size="lg">
